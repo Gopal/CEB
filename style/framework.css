@@ -1,0 +1,7 @@
+.textboxplain {
+	border:0px;
+	outline: none;
+}
+.textboxplain:focus {
+	outline: none;
+}
