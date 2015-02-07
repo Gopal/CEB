@@ -300,10 +300,7 @@ function doRightClickAction(ctrl) {
 }
 
 function doAllAction(ctrl, idx, isActionRevert) {	
-	//if(typeof isActionRevert ==='undefined')
-		//isActionRevert = true;
-		
-	console.log("doAllAction::" + ctrl +", " + idx + ", " + isActionRevert.toString());
+	
 	if(isShowRightClickMenu){
 		var actionList = menuData.marks[ctrl.id][idx];		
 	}else{
