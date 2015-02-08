@@ -11,23 +11,26 @@ var correctClick=false;
 var incorrectMsg=false;
 var isShowDropdown=false;
 var isDropdownSeqLen;
-var isShowFileTab=false;
+
 
 $(document).keydown(function(e) { //Should be the FIRST keydown handler
 	
 });
 
 $(document).keydown(function(e) {
-	if (!canTakeKeyDown && ((e.which==121 && !event.shiftKey) || e.which==18))return false;
+	if (!canTakeKeyDown && ((e.which==121 && !event.shiftKey) || e.which==18))
+		return false;
+		
 	canTakeKeyDown = false;
 	document.title = e.which;
 	var curChar = String.fromCharCode(e.which);	
 	if (e.which == 27) {
 		curKeySeq = "";
 	} else {
-		if (curKeySeq=="" && e.which==121 && !event.shiftKey) curChar = String.fromCharCode(18);	
-		curKeySeq += curChar;
-		
+		if (curKeySeq=="" && e.which==121 && !event.shiftKey) 
+			curChar = String.fromCharCode(18);	
+			
+		curKeySeq += curChar;		
 	}
 	
 	console.log(event.shiftKey+"in key down="+e.which)
@@ -64,7 +67,7 @@ function handleKey() {
 	document.title = "";
 	keysDisplayed = [];	
 	console.log("handlekey="+seqLen)
-	if (seqLen==1 && curKeySeq=='\x12' && !isShowDropdown) {
+	if (seqLen==1 && curKeySeq=='\x12' && !isShowDropdown && !isShowFileTab) {
 		retVal = false;
 		incorrectMsg=true;
 		for(var i in keyLevel1Action) {
@@ -75,9 +78,7 @@ function handleKey() {
 	} else {
 		incorrectMsg=false;
 		//this code is used to change the navigation image according to the selected tab
-		if (seqLen==2 && curKeySeq.indexOf('\x12')==0) {			
-			
-			
+		if (seqLen==2 && curKeySeq.indexOf('\x12')==0) {				
 			if (keyLevel1Action[curKeySeq.substring(1,2)]){
 				incorrectMsg=true;
 				console.log("--------"+keyLevel1Action[curKeySeq.substring(1,2)][4].substring(1))
@@ -88,45 +89,7 @@ function handleKey() {
 		} 
 				
 		else if (seqLen==3 && curKeySeq.indexOf('\x12')==0 && curKeySeq.indexOf('F')==1) {		
-			isShowFileTab=true;
-			switch(curKeySeq.substring(2,3)) {
-				case "I":
-					actionLoadPage(9);
-					break;
-				case "N":
-					actionLoadPage(10);
-					break;
-				case "O":
-					actionLoadPage(11);
-					break;
-				case "S":
-					//actionLoadPage(12);
-					break;
-				case "A":
-					actionLoadPage(13);
-					break;
-				case "P":
-					actionLoadPage(14);
-					break;
-				case "H":
-					actionLoadPage(15);
-					break;
-				case "E":
-					actionLoadPage(16);
-					break;
-				case "C":
-					actionLoadPage(17);
-					break;
-				case "D":
-					actionLoadPage(18);
-					break;
-				case "T":
-					actionLoadPage(19);
-					break;
-				
-			}
-			//actionLoadFileSubMenu(curKeySeq);
-			
+			changeFileMenuTab(curKeySeq.substring(2,3));			
 		}
 		console.log("hhhhhhh"+seqLen+"---"+curKeySeq.indexOf('\x12')+"---"+curKeySeq.indexOf('F'))
 		for(var i=0;i<keyData[curPage].length;i++) {
@@ -154,7 +117,7 @@ function handleKey() {
 							doAction(item, false);
 						});
 					} else if (seqLen == 3 && !actionDone) {
-						actionDone = false;
+						actionDone = true;
 												
 						$(keyLevel1Action[curKeySeq.substring(1,2)][4]).each(function(idx, item) {							
 							doAction(item, false);
@@ -174,7 +137,11 @@ function handleKey() {
 		//actionOffice(seqLen)
 		if(isShowRightClickMenu){
 			doRightClickKeyAction(event.which)
-		}else{
+		}
+		else if(isShowFileTab) {
+			//doFileMenuKeyHandler(event.which)
+			keyHandler(event.which,event.ctrlKey,event.shiftKey,event.altKey);
+		} else {
 			keyHandler(event.which,event.ctrlKey,event.shiftKey,event.altKey);
 		}
 		if(isDropdownSeqLen==3 && isShowDropdown=="true"){
@@ -516,20 +483,6 @@ function loadPageData() {
 		$("#questioncontainer").css({"z-index":"50"});
 		console.log("elllllllllse..")
 	}
-}
-
-function actionLoadFileSubMenu(curKeySeq) {
-	console.log("actionLoadFileSubMenu...")
-	curPageData = $.extend({}, pageData[curPage]);
-	keyDataTemp = keyData[curPage];
-	for(var i=0; i < keyDataTemp.length; i++) {
-		if(curKeySeq == keyDataTemp[i][4]) {
-			selectedTabData = keyDataTemp[i];
-			break;
-		}
-	}
-	
-	//$("#filemenu")[0].src = selectedTabData[6]["image"];
 }
  
 function initApp(ctrl) {
