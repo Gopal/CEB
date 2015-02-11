@@ -1,4 +1,5 @@
 var menuData;
+var subMenuData,checkSubMenu;
 var xPos=0,yPos=0;
 var subMenuX,subMenuY;
 var isShowRightClickMenu=false;
@@ -40,10 +41,10 @@ var rightClickMenuData = [
 				,m_Font: 						[0, 182, 145, 207, ['a_s'], ['h_Font'], [], []]
 				,m_Paragraph:		 			[0, 208, 145, 232, ['a_s'], ['h_Paragraph'], [], []]
 				,m_Define: 						[0, 233, 145, 257, ['a_s'], ['h_Define'], [], []]
-				,m_Synonyms_submenu:			[0, 257, 145, 281, ['a_s'], ['h_Synonyms'], [],[]]
+				,m_Synonyms:					[0, 257, 145, 281, ['a_s'], ['h_Synonyms'], [],[]]
 				,m_Translate: 					[0, 281, 145, 305, ['a_s'], ['h_Translate'], [], []]	
 				,m_Search: 						[0, 305, 145, 329, ['a_s'], ['h_Search'], [], []]	
-				,m_Hyperlink: 					[0, 329, 145, 353, ['a_s'], ['h_Hyperlink'], [], []]	
+				,m_Hyperlink:		 			[0, 329, 145, 353, ['a_s'], ['h_Hyperlink'], [], []]	
 				,m_NewComment: 					[0, 355, 145, 379, ['a_s'], ['h_NewComment'], [], []]	
 		},
 		
@@ -87,75 +88,68 @@ var rightClickMenuData = [
 		}
 	},
 	{
-		img: '../images/item34/submenu_synonyms.png', 
+		img: '../images/item04/right_click_shortcut_menu_in_insert_picture_dialog.png', 
 		htmls: {
 			t_Font: 						[]			
 		},
 		
 		marks: {			
 				//,m: [, [], ['h'], []]//Mouse area marking and list of actions CLICK, OVER, RIGHTCLICK	
-				//no key highlight
 				
-				
-				m_Cut1: 							[0, 0, 275, 25, ['a_s'], ['h_Cut1'], [], []]
-				,m_Copy: 						[0, 105, 145, 130, ['a_s'], ['h_Copy'], [], []]
-				,m_Paste: 						[25, 151, 65, 182, ['a_s'], ['h_Paste'], [], []]
-				,m_Font: 						[0, 182, 145, 207, ['a_s'], ['h_Font'], [], []]
-				,m_Paragraph:		 			[0, 208, 145, 232, ['a_s'], ['h_Paragraph'], [], []]
-				,m_Define: 						[0, 233, 145, 257, ['a_s'], ['h_Define'], [], []]
-				,m_Synonyms: 					[0, 257, 145, 281, ['a_s'], ['h_Synonyms'], [],[]]
-				,m_Translate: 					[0, 281, 145, 305, ['a_s'], ['h_Translate'], [], []]	
-				,m_Search: 						[0, 305, 145, 329, ['a_s'], ['h_Search'], [], []]	
-				,m_Hyperlink: 					[0, 329, 145, 353, ['a_s'], ['h_Hyperlink'], [], []]	
-				,m_NewComment: 					[0, 355, 145, 379, ['a_s'], ['h_NewComment'], [], []]	
+				m_Select: 						[0, 0, 295, 30, ['a_s'], ['h_Select'], [], []]
+				,m_Open: 						[0, 28, 295, 55, ['a_s'], ['h_Open'], [], []]
+				,m_Background: 					[0, 55, 295, 80, ['a_s'], ['h_Background'], [], []]
+				,m_Edit: 						[0, 77, 295, 100, ['a_s'], ['h_Edit'], [], []]
+				,m_Print:		 				[0, 100, 295, 122, ['a_s'], ['h_Print'], [], []]
+				,m_Preview: 					[0, 122, 295, 147, ['a_s'], ['h_Preview'], [], []]
+				,m_RotateClockwise:				[0, 148, 295, 176, ['a_s'], ['h_RotateClockwise'], [],[]]
+				,m_RotateCounter: 				[0, 176, 295, 200, ['a_s'], ['h_RotateCounter'], [], []]	
+				,m_SendTo: 						[0, 200, 295, 226, ['a_s'], ['h_SendTo'], [], []]	
+				,m_Cut:		 					[0, 226, 295, 252, ['a_s'], ['h_Cut'], [], []]	
+				,m_Copy: 						[0, 252, 295, 280, ['a_s'], ['h_Copy'], [], []]	
+				,m_CreateShortcut: 				[0, 280, 295, 306, ['a_s'], ['h_CreateShortcut'], [], []]	
+				,m_Delete: 						[0, 306, 295, 330, ['a_s'], ['h_Delete'], [], []]	
+				,m_Rename:			 			[0, 330, 295, 355, ['a_s'], ['h_Rename'], [], []]	
+				,m_Openfile: 					[0, 355, 295, 380, ['a_s'], ['h_Openfile'], [], []]	
+				,m_Properties: 					[0, 385, 295, 410, ['a_s'], ['h_Properties'], [], []]
 		},
 		
 		action: {
 		
+				h_Select: 						[0, 0, 295, 30]
+				,h_Open: 						[0, 28, 295, 55]
+				,h_Background: 					[0, 55, 295, 80]
+				,h_Edit: 						[0, 77, 295, 100]
+				,h_Print:		 				[0, 100, 295, 122]
+				,h_Preview: 					[0, 122, 295, 147]
+				,h_RotateClockwise:				[0, 148, 295, 176]
+				,h_RotateCounter: 				[0, 176, 295, 200]	
+				,h_SendTo: 						[0, 200, 295, 226]	
+				,h_Cut:		 					[0, 226, 295, 252]	
+				,h_Copy: 						[0, 252, 295, 280]	
+				,h_CreateShortcut: 				[0, 280, 295, 306]	
+				,h_Delete: 						[0, 306, 295, 330]	
+				,h_Rename:			 			[0, 330, 295, 355]	
+				,h_Openfile: 					[0, 355, 295, 380]	
+				,h_Properties: 					[0, 385, 295, 410]	
 				
-				
-				h_Cut1:	 						[0, 0, 275, 25]
-				,h_Copy: 						[0, 105, 145, 130]
-				,h_Paste: 						[26, 151, 60, 182]
-				,h_Font: 						[0, 182, 145, 207]
-				,h_Paragraph:					[0, 208, 145, 232]
-				,h_Define: 						[0, 233, 145, 257]	
-				,h_Synonyms: 					[0, 257, 145, 281]	
-				,h_Translate: 					[0, 281, 145, 305]	
-				,h_Search: 						[0, 305, 145, 329]	
-				,h_Hyperlink: 					[0, 329, 145, 353]	
-				,h_NewComment: 					[0, 355, 145, 379]
-				
-				
-		}		
+		}
 	}
 ]
-
-
-
-
 	
-function doRightClickHandler(ctrl){
+function doRightClickHandler(event, ctrl){
+	//console.log("doRightClickHandler.....")
 	incorrectMsg=false;
 	isShowRightClickMenu=true;
 	$('#glasscontainer').html('');	
 	//$("#rightclickmenu")[0].src = rightClickMenuData[rClickImg].img;
 	console.log(event.target.id+"=hotspot right clicked..."+rightClickMenuData[rClickImg].img)
 	menuData = rightClickMenuData[rClickImg];
-	loadRightClickData(0,0);	
+	loadRightClickData(event, 0,0);	
 	//return false;
 }
 
-function subMenuHandler(xPos, yPos){
-	isShowSubMenu=true;
-	rClickImg=1;
-	$("#submenu")[0].src = rightClickMenuData[rClickImg].img;	
-	menuData = rightClickMenuData[rClickImg];
-	loadRightClickData(xPos, yPos);
-}
-	
-
-function loadRightClickData(xVal, yVal) {
+function loadRightClickData(event, xVal, yVal) {
 	var i, actionType, curItem, newItem, rCtrl, rhCtrl, item;
 	
 	
@@ -168,24 +162,19 @@ function loadRightClickData(xVal, yVal) {
 			xPos=kxPos;
 			yPos=kyPos;
 		}else{
-			xPos=event.offsetX;
-			yPos=event.offsetY+150;
+			xPos=event.offsetX+400;
+			yPos=event.offsetY+100;
 		}
 		subMenuX=xPos;subMenuY=yPos;
-	}else{
-		
-		rCtrl=$("#submenucontainer"), rhCtrl=$("#submenu")
-		rCtrl.html("");
-		xPos=subMenuX+147;
-		yPos=subMenuY+yVal;
-		
 	}
 	setTimeout(function() {
 		
 		rhCtrl.css({left:xPos,top:yPos})
-		//console.log(xPos+"---"+yPos+"--"+rhCtrl.position().left)
+		console.log(event.offsetX+"--xpos--"+xPos+"-ypos--"+yPos+"--"+rhCtrl.position().left)
 		rCtrl.css({left:rhCtrl.position().left, top:rhCtrl.position().top, "width":rhCtrl.width(), "height":rhCtrl.height()});
+		//console.log("ccccccccccccccccccc="+rightClickMenuData[rClickImg].img);
 		$("#rightclickmenu")[0].src = rightClickMenuData[rClickImg].img;
+		
 	}, 100);   
 	
 	console.log(event.offsetX+"---"+event.pageX)
@@ -211,9 +200,9 @@ function loadRightClickData(xVal, yVal) {
 		newItem = $("<div></div>");
 		newItem.attr("id", i);
 		if (!DESIGN_MODE) {
-			newItem.attr("onclick", "doClickAction(this);correctClick=true;");
-			newItem.attr("onmouseover", "doOverAction(this)");
-			newItem.attr("onmouseout", "doOutAction(this)");
+			newItem.attr("onclick", "doClickActionInRCMenu(event,this);correctClick=true;");
+			newItem.attr("onmouseover", "doOverActionInRCMenu(event,this)");
+			newItem.attr("onmouseout", "doOutActionInRCMenu(event,this)");
 			
 		} else {
 			newItem.attr("title", i);
@@ -256,8 +245,45 @@ function loadRightClickData(xVal, yVal) {
 	doRightClickKeyAction(event)
 }
 
+function doClickActionInRCMenu(event, ctrl) {
+	doAllActionInRCMenu(event, ctrl, 4);
+}
+
+
+function doOverActionInRCMenu(event, ctrl) {	
+	//console.log("ctttl="+ctrl.id+"---"+isShowRightClickMenu)
+	checkSubMenu=ctrl.id.split('_')[2]
+		
+	if(checkSubMenu=="submenu"){
+		console.log("if"+ctrl.id);
+		var xPos = menuData.marks[ctrl.id][0];
+		var yPos = menuData.marks[ctrl.id][1];
+		subMenuHandler(xPos, yPos);
+		$("#submenu").show();
+	}else{
+		$("#submenucontainer").html('');
+		$("#submenu").hide();
+	}
+	doAllActionInRCMenu(event, ctrl, 5);	
+	clearKeyHighlights();
+}
+
+function doOutActionInRCMenu(event, ctrl) {
+	doAllActionInRCMenu(event, ctrl, 5, true);
+}
+
+
+
+function doAllActionInRCMenu(event, ctrl, idx, isActionRevert) {	
+	//console.log("in sinfinf"+menuData.marks)
+	var actionList = menuData.marks[ctrl.id][idx];
+	for(var i=0;i<actionList.length;i++) {
+		doAction(event, actionList[i], isActionRevert);
+	}
+}
+
 function clearKeyHighlights(){
-	console.log("Clear Key Highlights...")
+	//console.log("Clear Key Highlights...")
 	for(var i in menuData.marks) {
 		if(i.substring(0,1)!="n"){
 			curItem = i.substring(2)		
@@ -267,19 +293,19 @@ function clearKeyHighlights(){
 }
 
 function rightClickKeyHandler(keycode,rClick, eName){	
-	console.log("rightClickKeyHandler...."+keycode,rClick, eName);	
+	//console.log("rightClickKeyHandler...."+keycode,rClick, eName);	
 	var rCorrectKey,rNextPath;
 	for(var i=0; i<questionHotspots.length;i++){
 		if(currentSegment==questionHotspots[i].id){			
 			rCorrectKey=questionHotspots[i].actions.keys.keyUp.correct			
 			for(var j=0; j<rCorrectKey.length; j++){
-				console.log("in rch"+rCorrectKey[j].dropDown)
-				if(rCorrectKey[j].element == String(eName) && (rCorrectKey[j].rightClick == String(rClick) || rCorrectKey[j].dropDown == String(rClick)) && rCorrectKey[j].code == keycode){
+				console.log("in rch"+rCorrectKey[j].dropDown+"-seqLen-"+seqLen)
+				if(rCorrectKey[j].element == String(eName) && ((rCorrectKey[j].rightClick||rCorrectKey[j].dropDown) == String(rClick)) && rCorrectKey[j].code == keycode){
 					rNextPath=rCorrectKey[j].nextPath;
 					for(var k=0; k<questionData.length;k++){
 						if(rNextPath == questionData[k].id){
 							currentSegment=questionData[k].id;
-							//incorrectMsg=true;
+							incorrectMsg=true;
 							console.log("succes...")
 							isShowDropdown=false;
 							$("#question").css({"left":"10px","top":"151px"});
@@ -288,7 +314,10 @@ function rightClickKeyHandler(keycode,rClick, eName){
 						}
 					}					
 					break;
-				}//else{incorrectMsg=false;}
+				}else{
+					if(seqLen!=3 && keycode!=37 && keycode!=38 && keycode!=39 && keycode!=40){incorrectMsg=false;}else{incorrectMsg=true;}
+					//console.log("tttttttttttt;")
+				}
 			}break;
 		}
 	}
@@ -298,14 +327,17 @@ function rightClickKeyHandler(keycode,rClick, eName){
 var liItem,arrKeyCount=0;
 
 function doRightClickKeyAction(keycode){
-	incorrectMsg=true;
+	console.log("doRightClickKeyAction="+isShowSubMenu)
+	incorrectMsg=false;
 	var curItem,liItem=[];
+	
 	for(var i in menuData.marks) {
 		if(i.substring(0,1)!="n"){
 			curItem = i.substring(2)		
 			liItem.push(curItem)
 		}
 	}
+	console.log("3333333----333-"+liItem[arrKeyCount]+"--4--"+String(liItem[arrKeyCount]).split('_')[1])
 	if(keycode==40){//downArrow
 		$("#m_"+liItem[arrKeyCount]).css({"background-color":"LightSteelBlue","opacity":"0"});	
 		arrKeyCount++;
@@ -313,10 +345,24 @@ function doRightClickKeyAction(keycode){
 		$("#m_"+liItem[arrKeyCount]).css({"background-color":"LightSteelBlue","opacity":"0"});		
 		arrKeyCount--;
 		if(arrKeyCount<0){arrKeyCount=liItem.length;}
+	}else if(keycode==39){ 
+		if(String(liItem[arrKeyCount]).split('_')[1]=="submenu"){
+			isShowSubMenu=true;
+			console.log("if in rck keys"+"m_"+liItem[arrKeyCount]);
+			var xPos = menuData.marks["m_"+liItem[arrKeyCount]][0];
+			var yPos = menuData.marks["m_"+liItem[arrKeyCount]][1];
+			subMenuHandler(xPos, yPos);
+			$("#submenu").show();
+		}
+	}else if(keycode==37){
+		isShowSubMenu=false;
+		$("#submenucontainer").html('');
+		$("#submenu").hide();
+		console.log("isShowSubMenu in 666666="+isShowSubMenu);
 	}
 	
 	if(liItem.length>arrKeyCount && event.type != "contextmenu"){		
-	console.log("in doRC"+event.type)
+		//console.log("in doRC"+event.type)
 		$("#m_"+liItem[arrKeyCount]).css({"background-color":"LightSteelBlue","opacity":"0.5"});	
 	}else if(event.type != "contextmenu"){
 		if(keycode==40){
@@ -326,7 +372,7 @@ function doRightClickKeyAction(keycode){
 		}
 		$("#m_"+liItem[arrKeyCount]).css({"background-color":"LightSteelBlue","opacity":"0.5"});
 	}
-	if(keycode==13 || keycode==32){incorrectMsg=true;rightClickKeyHandler(keycode,true, liItem[arrKeyCount])}	
-	
+	//if(keycode==13 || keycode==32){incorrectMsg=true;rightClickKeyHandler(keycode,true, liItem[arrKeyCount])}	
+	rightClickKeyHandler(keycode,true, liItem[arrKeyCount])
 }
 
