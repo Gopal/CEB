@@ -1,7 +1,5 @@
-var questionData=		[	{id:'MSW_34000', path:'../images/item34/34000_initial_item34.png'},
-							{id:'MSW_34010', path:'../images/item34/34010_second_item34.png'},
-							{id:'MSW_34020', path:'../images/item34/34020_third_item34.png'},
-							{id:'MSW_RESULT', path:',,/images/item34/result_item34.png'}];
+var questionData=		[	{id:'MSW_34000', path:'../images/item34/34000_initial_item34.png'},							
+							{id:'MSW_RESULT', path:'../images/item34/result_item34.png'}];
 					
 
 var questionHotspots=	[	
@@ -9,19 +7,19 @@ var questionHotspots=	[
 			id:'MSW_34000', actions:{
 				click:{
 					correct:{
-						iconName:	['Cut','Bold','OkBtn','Breaks'], 
-						nextPath:	['MSW_34010','MSW_RESULT','MSW_34010','MSW_34020']
+						iconName:	['Cut'], 
+						nextPath:	['MSW_RESULT']
 						
 					},
-					dead:		['hotspot2','hotspot1']
+					dead:		['SelectedText']
 				},
 				rightClick:{
 					correct:{
-						iconName:	['OkBtn'], 
+						iconName:	['SelectedText'], 
 						nextPath:	['']
 						
 					},
-					dead:		['hotspot2','hotspot1']
+					dead:		[]
 				},
 				mouseUp:{
 					correct:	['mouseup'],
@@ -46,7 +44,7 @@ var questionHotspots=	[
 							  element: "NA",
 							  rightClick: "false",
 							  dropDown:	"false",
-							  nextPath: "MSW_34010"
+							  nextPath: "MSW_RESULT"
 							},
 							{
 							  char: "X",
@@ -76,6 +74,45 @@ var questionHotspots=	[
 							},
 							{
 							  char: "",
+							  code: "46",
+							  alt: "false",
+							  ctrl: "false",
+							  shift: "true",							  
+							  page: "0",
+							  seqLen: "1",
+							  element: "NA",
+							  rightClick: "false",
+							  dropDown:	"false",
+							  nextPath: "MSW_RESULT"
+							},
+							{
+							  char: "T",
+							  code: "84",
+							  alt: "false",
+							  ctrl: "false",
+							  shift: "false",							  
+							  page: "0",
+							  seqLen: "1",
+							  element: "Cut",
+							  rightClick: "true",
+							  dropDown:	"false",
+							  nextPath: "MSW_RESULT"
+							},
+							{
+							  char: "T",
+							  code: "84",
+							  alt: "false",
+							  ctrl: "false",
+							  shift: "true",							  
+							  page: "0",
+							  seqLen: "1",
+							  element: "Cut",
+							  rightClick: "true",
+							  dropDown:	"false",
+							  nextPath: "MSW_RESULT"
+							},
+							{
+							  char: "",
 							  code: "13",
 							  alt: "false",
 							  ctrl: "false",
@@ -99,45 +136,26 @@ var questionHotspots=	[
 							  rightClick: "true",
 							  dropDown:	"false",
 							  nextPath: "MSW_RESULT"
-							},{
-							  char: "X",
-							  code: "66",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "3",
-							  seqLen: "3",
-							  element: "NA",
-							  rightClick: "false",
-							  dropDown:	"true",
-							  nextPath: "MSW_34020"
 							}
 						],
 						dead: [
 							{
-							  char: "b",
-							  code: "66",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",
-							  page: "0",
-							  seqLen: "1"									
-							},
-							{
-							  char: "a",
+							  char: "A",
 							  code: "65",
 							  alt: "false",
 							  ctrl: "true",
 							  shift: "false",
 							  page: "0",
-							  seqLen: "1"								
+							  seqLen: "1",
+							  element: "NA",
+							  rightClick: "false",
+							  dropDown:	"false"
 							}
 						]
 					}
 				}
 			},marks: {//s-HOTSPOT - INVISIBLE AREA
-				s_OkBtn: 							[90, 100, 850, 150, [], [], []]
-				,s_hotspot2: 						[690, 400, 750, 450, [], [], []]
+				s_SelectedText: 					[390, 110, 550, 150, [], [], []]				
 				
 				//FOOTER-STATUSBAR
 				,m_Page:	 						[1, 434, 78, 457, [''], ['h_Page'], []]
@@ -166,229 +184,5 @@ var questionHotspots=	[
 				,h_ZoomLevel: 						[898, 434, 938, 457]
 				////
 			}			
-		},
-		{
-			id:'MSW_34010', actions:{
-				click:{
-					correct:{
-						iconName:	['Italic',''], 
-						nextPath:	['MSW_RESULT','']
-						
-					},
-					dead:		['Paste']
-				},
-				rightClick:{
-					
-				},
-				mouseUp:{
-					
-				},
-				doubleClick:{
-					
-				},
-				keys: {
-					keyUp: {
-						correct: [
-							{
-							  char: "a",
-							  code: "65",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "0",
-							  seqLen: "1",
-							  nextPath: "MSW_RESULT"
-							}
-							
-						],
-						dead: [
-							{
-							  char: "a",
-							  code: "0",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false"							  
-							}
-						]
-					}
-				}
-			},marks: {
-				
-			},action: {
-				
-			}		
-		},
-		{
-			id:'MSW_34020', actions:{
-				click:{
-					correct:{
-						iconName:	['Option1','','',''], 
-						nextPath:	['MSW_RESULT','','','']
-						
-					},
-					dead:		['','']
-				},
-				rightClick:{
-					correct:{
-						iconName:	[''], 
-						nextPath:	['']
-						
-					},
-					dead:		['hotspot2','hotspot1']
-				},
-				mouseUp:{
-					correct:	['mouseup'],
-					dead:		['']
-				},
-				doubleClick:{
-					correct:	['dblclick'],
-					dead:		['']
-				},
-				
-				keys: {
-					keyUp: {
-						correct: [
-							{
-							  char: "X",
-							  code: "88",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "0",
-							  seqLen: "3",
-							  element: "NA",
-							  rightClick: "false",
-							  dropDown:	"false",
-							  nextPath: "MSW_34010"
-							},
-							{
-							  char: "X",
-							  code: "88",
-							  alt: "false",
-							  ctrl: "true",
-							  shift: "false",
-							  page: "0",
-							  seqLen: "1",
-							  element: "NA",
-							  rightClick: "false",
-							  dropDown:	"false",
-							  nextPath: "MSW_RESULT"
-							},
-							{
-							  char: "",
-							  code: "80",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "0",
-							  seqLen: "1",
-							  element: "Option1",
-							  rightClick: "false",
-							  dropDown:	"true",
-							  nextPath: "MSW_RESULT"
-							},
-							{
-							  char: "",
-							  code: "13",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "0",
-							  seqLen: "1",
-							  element: "Option1",
-							  rightClick: "false",
-							  dropDown:	"true",
-							  nextPath: "MSW_RESULT"
-							},
-							{
-							  char: "",
-							  code: "32",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",							  
-							  page: "0",
-							  seqLen: "1",
-							  element: "Option1",
-							  rightClick: "false",
-							  dropDown:	"true",
-							  nextPath: "MSW_RESULT"
-							}
-						],
-						dead: [
-							{
-							  char: "b",
-							  code: "66",
-							  alt: "false",
-							  ctrl: "false",
-							  shift: "false",
-							  page: "0",
-							  seqLen: "1"									
-							},
-							{
-							  char: "a",
-							  code: "65",
-							  alt: "false",
-							  ctrl: "true",
-							  shift: "false",
-							  page: "0",
-							  seqLen: "1"								
-							}
-						]
-					}
-				}
-			},marks: {
-				m_Option1: 						[214, -40, 513, 20, [''], ['h_Option1'], []]
-				,m_Option2: 					[214, 23, 513, 80, [''], ['h_Option2'], []]
-				,m_Option3: 					[214, 83, 513, 140, [''], ['h_Option3'], []]
-				,m_Option4: 					[214, 163, 513, 220, [''], ['h_Option4'], []]
-				,m_Option5: 					[214, 223, 513, 280, [''], ['h_Option5'], []]
-				,m_Option6: 					[214, 283, 513, 340, [''], ['h_Option6'], []]				
-				,m_Option7: 					[214, 343, 513, 400, [''], ['h_Option7'], []]
-			},action: {
-				h_Option1: 						[214, -40, 513, 20]
-				,h_Option2: 					[214, 23, 513, 80]
-				,h_Option3: 					[214, 83, 513, 140]
-				,h_Option4: 					[214, 163, 513, 220]
-				,h_Option5: 					[214, 223, 513, 280]
-				,h_Option6: 					[214, 283, 513, 340]				
-				,h_Option7: 					[214, 343, 513, 400]
-			}			
-		},
-		{
-			id:'MSW_RESULT', actions:{
-				click:{
-					correct:{
-						iconName:	['',''], 
-						nextPath:	['','']
-						
-					},
-					dead:		['Paste']
-				},
-				rightClick:{
-					
-				},
-				mouseUp:{
-					
-				},
-				doubleClick:{
-					
-				}
-			},marks: {
-				
-			},action: {
-				
-				
-			}		
-		}	
+		}		
 ];
-
-var dropDownKeys = {
-	"P" : [240, -12, 84, 62, ""],
-	"C" : [240, 52, 84, 62, ""],
-	"T" : [240, 112, 84, 62, ""],
-	"N" : [240, 192, 84, 62, ""],
-	"O" : [240, 252, 84, 62, ""],
-	"E" : [240, 312, 84, 62, ""],
-	"D" : [240, 372, 84, 62, ""]
-	
-};
