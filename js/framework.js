@@ -139,8 +139,10 @@ function handleKey() {
 			doRightClickKeyAction(event.which)
 		}
 		else if(isShowFileTab) {
-			//doFileMenuKeyHandler(event.which)
-			keyHandler(event.which,event.ctrlKey,event.shiftKey,event.altKey);
+			if(event.which == 37 || event.which == 38 || event.which == 39 || event.which == 40)
+				doFileMenuKeyHandler(event.which)
+			else 
+				keyHandler(event.which,event.ctrlKey,event.shiftKey,event.altKey);
 		} else {
 			keyHandler(event.which,event.ctrlKey,event.shiftKey,event.altKey);
 		}

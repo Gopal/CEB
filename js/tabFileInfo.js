@@ -1,3 +1,8 @@
+//m for markings
+//i only for toggle images
+//a_: alt key
+//h_: highlight
+
 var keyFileInfo = [<!--------------------------------------------------------------------FILE INFO TAB------------------------------------------------------------------------------------------>	
 	//ROW 1	
 	//x, y, width, height, alt key, disabled, image path
@@ -42,7 +47,14 @@ var tabFileInfo =
 				,m_FileOptionsTab:				[0, 467, 120, 505, ['p19'],['i_FileOptionsTab',''],[]]				
 				
 			<!-- CONTENT HIGHLIGHT -->
-				,m_ProtectDocument:				[168, 182, 89, 268, [''],['h_ProtectDocument',''],[]]				
+				,m_FilePath:					[166, 152, 190, 172, ['a_g'],['h_FilePath',''],[]]
+				,m_ProtectDocument:				[168, 182, 257, 268, ['a_p'],['h_ProtectDocument',''],[]]
+				,m_Inspectocument:				[168, 301, 257, 387, ['a_i'],['h_Inspectocument',''],[]]
+				,m_Versions:					[168, 421, 257, 507, ['a_r'],['h_Versions',''],[]]
+				,m_Properties:					[665, 186, 752, 210, ['a_r'],['h_Properties',''],[]]
+				,m_ScrollArrowUp:				[924, 55, 939, 71, [],['h_ScrollArrowUp',''],[]]
+				,m_ScrollArrowDown:				[924, 582, 939, 597, [],['h_ScrollArrowDown',''],[]]
+				,m_ScrollBar:					[924, 70, 939, 505, [],['h_ScrollBar',''],[]]
 				
 		},
 		
@@ -60,7 +72,6 @@ var tabFileInfo =
 				,i_FileAccountTab:				[0, 430, 120, 467, '../images/toggleImages/file_info.png']				
 				,i_FileOptionsTab:				[0, 467, 120, 505, '../images/toggleImages/file_info.png']				
 		
-		
 		<!---------------------------HIGHLIGHT BACKGROUND----------------------------------------------->			
 		
 			<!---HEADER-->
@@ -70,6 +81,13 @@ var tabFileInfo =
 				,h_Maximize: 					[882, 2, 910, 22]
 				,h_Close:	 					[912, 2, 938, 22]
 				
-				,h_ProtectDocument:				[168, 182, 89, 268]
+				,h_FilePath:					[166, 152, 190, 172]
+		        ,h_ProtectDocument:		        [168, 182, 257, 268]
+				,h_Inspectocument:		        [168, 301, 257, 387]
+                ,h_Versions:			        [168, 421, 257, 507]
+				,h_Properties:			        [665, 186, 752, 210]
+				,h_ScrollArrowUp:			    [924, 55, 939, 71]
+				,h_ScrollArrowDown:				[924, 582, 939, 597]
+				,h_ScrollBar:					[924, 70, 939, 505]
 		}
 	}
